@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Name, PhoneNumber, EmailAddress, SkypeID, FBUserName -->
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".UserProfileEntry">
+
+    <TextView
+        android:id="@+id/tvDisplayStatus"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <EditText
+        android:id="@+id/etFirstName"
+        android:inputType="text"
+        android:hint="@string/first_name"
+        android:layout_width="400dp"
+        android:layout_height="wrap_content" />
+
+
+    <EditText
+        android:id="@+id/etLastName"
+        android:inputType="text"
+        android:hint="@string/last_name"
+        android:layout_width="400dp"
+        android:layout_height="wrap_content" />
+
+    <Button
+        android:id="@+id/btnOK"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:onClick="onButtonClick"
+        android:text="@string/ok" />
+
+    <Button
+        android:id="@+id/btnDone"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:onClick="onButtonClick"
+        android:text="@string/done" />
+
+</LinearLayout>

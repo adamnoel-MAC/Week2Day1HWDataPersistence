@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <EditText
+        android:id="@+id/etUserName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/user_name"/>
+
+    <EditText
+        android:id="@+id/etPassword"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/password"/>
+
+    <Button
+        android:id="@+id/btnSaveUserName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/save_user_name"
+        android:onClick="onButtonClick"/>
+
+    <Button
+        android:id="@+id/btnRetrieveUserName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/retrieve_user_name"
+        android:onClick="onButtonClick"/>
+
+    <TextView
+        android:id="@+id/tvDisplayUserName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:id="@+id/tvDisplayPassword"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <Button
+        android:id="@+id/btnInsertUserName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/insert_into_db"
+        android:onClick="onButtonClick"/>
+
+    <Button
+        android:id="@+id/btnRetrieveUserName_db"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/retrieve_from_db"
+        android:onClick="onButtonClick"/>
+
+    <Button
+        android:id="@+id/btnEnterNewUser"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/enter_new_user"
+        android:onClick="onButtonClick"/>
+    />
+</LinearLayout>

@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">Week2Day1HW-DataPersistence</string>
+    <string name="user_name">User Name</string>
+    <string name="save_user_name">Save User Name</string>
+    <string name="retrieve_user_name">Retrieve User Name</string>
+    <string name="password">Password</string>
+    <string name="retrieve_from_db">Retrieve from DB</string>
+    <string name="insert_into_db">Insert into DB</string>
+    <string name="first_name">First Name</string>
+    <string name="last_name">Last Name</string>
+    <string name="ok">OK</string>
+    <string name="done">Done</string>
+    <string name="enter_new_user">ENTER NEW USER</string>
+</resources>
