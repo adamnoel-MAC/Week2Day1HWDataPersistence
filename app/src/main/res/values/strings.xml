@@ -8,11 +8,12 @@
     <string name="insert_into_db">Insert into DB</string>
     <string name="first_name">First Name</string>
     <string name="last_name">Last Name</string>
-    <string name="ok">OK</string>
-    <string name="done">Done</string>
+    <string name="insert">Insert</string>
+    <string name="cancel">Return</string>
     <string name="enter_new_user">ENTER NEW USER</string>
     <string name="phone_number">Phone Number</string>
     <string name="email_address">Email Address</string>
     <string name="skype_id">Skype ID</string>
-    <string name="password">Password</string>
+    <string name="facebook_username">Facebook Username</string>
+
 </resources>

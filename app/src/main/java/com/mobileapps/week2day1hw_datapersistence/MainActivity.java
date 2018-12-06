@@ -4,6 +4,8 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.database.Cursor;
+import android.database.SQLException;
+import android.database.sqlite.SQLiteCursor;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -16,6 +18,8 @@ import static com.mobileapps.week2day1hw_datapersistence.Constants.USER_NAME_KEY
 
 
 public class MainActivity extends AppCompatActivity {
+
+    private static final String TAG = MainActivity.class.getSimpleName() + "_TAG";
 
     SharedPreferences sharedPreferences;
     EditText etUserName;
@@ -45,7 +49,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void onButtonClick(View view) {
         switch (view.getId()){
-            case R.id.btnSaveUserName:
+            case R.id.btnSaveUserName:  // Saves to Shared Preferences
                 if (!etUserName.getText().toString().isEmpty()) {
                     String userName = etUserName.getText().toString();
                     SharedPreferences.Editor editor = sharedPreferences.edit();
@@ -64,7 +68,7 @@ public class MainActivity extends AppCompatActivity {
                 if (!etUserName.getText().toString().isEmpty()) {
                     String userName = etUserName.getText().toString();
                     String password = etPassword.getText().toString();
-                    if (mySqlLiteHelper.insertContact(userName, password)){
+                    if (mySqlLiteHelper.insertLogin(userName, password)){
                         tvDisplayUserName.setText("DATA SAVED");
                     } else {
                         tvDisplayUserName.setText("DATA SAVE FAILED - TRY AGAIN");
@@ -76,17 +80,23 @@ public class MainActivity extends AppCompatActivity {
                 break;
             case R.id.btnRetrieveUserName_db:
                 Log.d("TAG", "onButtonClick: Opening Cursor");
-                Cursor cur = mySqlLiteHelper.getUsersByName(etUserName.getText().toString());
-                if (cur.getCount() > 0) {
-                    cur.moveToFirst();
-                    int uNameIndex = cur.getColumnIndex(Constants.USER_NAME_KEY);
-                    int pWordIndex = cur.getColumnIndex(Constants.PASSWORD);
-                    String returnUserName = cur.getString(uNameIndex);
-                    String returnPassword = cur.getString(pWordIndex);
-                    tvDisplayUserName.setText(returnUserName);
-                    tvDisplayPW.setText(returnPassword);
-                }else {
-                    tvDisplayUserName.setText("USER DOES NOT EXIST");
+                try{
+                    Cursor cur = mySqlLiteHelper.getUsersByName(etUserName.getText().toString());
+                    if (cur.getCount() > 0) {
+                        cur.moveToFirst();
+                        int uNameIndex = cur.getColumnIndex(Constants.USER_NAME);
+                        int pWordIndex = cur.getColumnIndex(Constants.PASSWORD);
+                        Log.d("TAG", "onButtonClick: Opening Cursor - uNameIndex: " + uNameIndex + "; pWordIndex: " + pWordIndex);
+                        Log.d("TAG", "onButtonClick: cursor columns : " + cur.getColumnName(0) + "; " + cur.getColumnName(1));
+                        String returnUserName = cur.getString(uNameIndex);
+                        String returnPassword = cur.getString(pWordIndex);
+                        tvDisplayUserName.setText(returnUserName);
+                        tvDisplayPW.setText(returnPassword);
+                    }else {
+                        tvDisplayUserName.setText("USER DOES NOT EXIST");
+                    }
+                }catch (Exception e){
+                    Log.d("TAG", "onButtonClick: SQL EXCEPTION: "); e.getMessage().toString();
                 }
                 break;
             case R.id.btnEnterNewUser:

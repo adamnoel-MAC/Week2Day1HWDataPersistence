@@ -11,7 +11,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import static com.mobileapps.week2day1hw_datapersistence.Constants.DATABASE_VERSION;
-import static com.mobileapps.week2day1hw_datapersistence.Constants.DATABSE_NAME;
+import static com.mobileapps.week2day1hw_datapersistence.Constants.DATABASE_NAME;
 import static com.mobileapps.week2day1hw_datapersistence.Constants.PASSWORD;
 import static com.mobileapps.week2day1hw_datapersistence.Constants.SHARE_PREF_LOCATION;
 import static com.mobileapps.week2day1hw_datapersistence.Constants.TABLE_NAME;
@@ -21,8 +21,14 @@ import static com.mobileapps.week2day1hw_datapersistence.Constants.USER_NAME_KEY
 
 public class UserProfileEntry extends AppCompatActivity {
 
-    EditText etFirstName;
+    EditText etUserName;
     EditText etPassword;
+    EditText etFirstName;
+    EditText etLastName;
+    EditText etPhoneNumber;
+    EditText etEmailAddress;
+    EditText etSkypeID;
+    EditText etFBUserName;
 
     TextView tvDisplayStatus;
 
@@ -35,8 +41,14 @@ public class UserProfileEntry extends AppCompatActivity {
         setContentView(R.layout.activity_user_profile_entry);
 
         tvDisplayStatus = findViewById(R.id.tvDisplayStatus);
-        etFirstName = findViewById(R.id.etFirstName);
+        etUserName = findViewById(R.id.etUserName);
         etPassword = findViewById(R.id.etLastName);
+        etFirstName = findViewById(R.id.etFirstName);
+        etLastName = findViewById(R.id.etLastName);
+        etPhoneNumber = findViewById(R.id.etPhoneNumber);
+        etEmailAddress = findViewById(R.id.etEmailAddress);
+        etSkypeID = findViewById(R.id.etSkypeID);
+        etFBUserName = findViewById(R.id.etFBUserName);
 
         sharedPreferences = getSharedPreferences(SHARE_PREF_LOCATION, Context.MODE_PRIVATE);
 
@@ -49,11 +61,18 @@ public class UserProfileEntry extends AppCompatActivity {
     public void onButtonClick(View view) {
         switch (view.getId()) {
             case R.id.btnOK:
-                if (!etFirstName.getText().toString().isEmpty()) {
-                    String userName = etFirstName.getText().toString();
+                if (!etUserName.getText().toString().isEmpty()) {
+                    String userName = etUserName.getText().toString();
                     String password = etPassword.getText().toString();
+                    String firstName = etFirstName.getText().toString();
+                    String lastName =   etLastName.getText().toString();
+                    String phoneNumber = etPhoneNumber.getText().toString();
+                    String emailAddres = etEmailAddress.getText().toString();
+                    String skypeID =    etSkypeID.getText().toString();
+                    String fBUserName = etFBUserName.getText().toString();
                     Log.d("TAG", "onButtonClick: UserName, Password: " + userName + ", " + password);
-                    if (mySqlLiteHelper.insertContact(userName, password)){
+                    if (mySqlLiteHelper.insertContact(
+                            userName, password, firstName, lastName, phoneNumber, emailAddres, skypeID, fBUserName)){
                         tvDisplayStatus.setText("DATA SAVED");
                     } else {
                         tvDisplayStatus.setText("DATA SAVE FAILED - TRY AGAIN");

@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Name, PhoneNumber, EmailAddress, SkypeID, FBUserName -->
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -65,7 +64,7 @@
     <EditText
         android:id="@+id/etFBUserName"
         android:inputType="text"
-        android:hint="Facebook Username"
+        android:hint="@string/facebook_username"
         android:layout_width="400dp"
         android:layout_height="wrap_content" />
 
@@ -74,13 +73,13 @@
         android:layout_width="100dp"
         android:layout_height="wrap_content"
         android:onClick="onButtonClick"
-        android:text="@string/ok" />
+        android:text="@string/insert" />
 
     <Button
         android:id="@+id/btnDone"
         android:layout_width="100dp"
         android:layout_height="wrap_content"
         android:onClick="onButtonClick"
-        android:text="@string/done" />
+        android:text="@string/cancel" />
 
 </LinearLayout>
