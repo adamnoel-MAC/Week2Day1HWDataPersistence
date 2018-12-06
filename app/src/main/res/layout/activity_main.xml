@@ -43,16 +43,63 @@
         android:text="@string/insert_into_db"
         android:onClick="onButtonClick" />
     <Button
-        android:id="@+id/btnRetrieveUserName_db"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/retrieve_from_db"
-        android:onClick="onButtonClick" />
-    <Button
         android:id="@+id/btnEnterNewUser"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/enter_new_user"
         android:onClick="onButtonClick" />
+
+    <EditText
+        android:id="@+id/etGetUser"
+        android:hint="Enter UserName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <Button
+        android:id="@+id/btnRetrieveUserName_db"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/retrieve_from_db"
+        android:onClick="onButtonClick" />
+
+    <TextView
+        android:id="@+id/tvUserName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:id="@+id/tvPassword"
+        android:layout_width="400dp"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:id="@+id/tvFirstName"
+        android:layout_width="400dp"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:id="@+id/tvLastName"
+        android:layout_width="400dp"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:id="@+id/tvPhoneNumber"
+        android:layout_width="400dp"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:id="@+id/tvEmailAddress"
+        android:layout_width="400dp"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:id="@+id/tvSkypeID"
+        android:layout_width="400dp"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:id="@+id/tvFBUserName"
+        android:layout_width="400dp"
+        android:layout_height="wrap_content" />
+
 
 </LinearLayout>
